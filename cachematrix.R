@@ -6,7 +6,7 @@
 ## function setInvert save inverse of a matrix to variable invM
 ## function getInvert return inverse of this matrix
 
-makeCacheMatrix <- function(x = matrix()) {
+makeCacheMatrix <- function(x = matrix(...),...) {
   invM <- NULL
   set <- function(y) {
     x <<- y
@@ -41,3 +41,15 @@ cacheSolve <- function(x, ...) {
   
   inv
 }
+
+x<-makeCacheMatrix(matrix(c(1,2,3,0,1,4,5,6,0),nrow = 3,ncol = 3))
+
+
+print(x$get())
+
+y<-cacheSolve(x)
+
+print(y)
+
+print(round(x$get()%*%y))
+
